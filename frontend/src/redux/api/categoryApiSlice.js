@@ -1,5 +1,5 @@
 import { apiSlice } from "./apiSlice";
-import { CATEGORY_URL } from "../features/constants";
+import { CATEGORY_URL } from "../constants";
 
 export const categoryApiSLice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
