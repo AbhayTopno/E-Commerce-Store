@@ -28,18 +28,10 @@ const AdminProductUpdate = () => {
   const [brand, setBrand] = useState(productData?.brand || "");
   const [stock, setStock] = useState(productData?.countInStock);
 
-  // hook
   const navigate = useNavigate();
-
-  // Fetch categories using RTK Query
   const { data: categories = [] } = useFetchCategoriesQuery();
-
   const [uploadProductImage] = useUploadProductImageMutation();
-
-  // Define the update product mutation
   const [updateProduct] = useUpdateProductMutation();
-
-  // Define the delete product mutation
   const [deleteProduct] = useDeleteProductMutation();
 
   useEffect(() => {
@@ -79,7 +71,6 @@ const AdminProductUpdate = () => {
       formData.append("brand", brand);
       formData.append("countInStock", stock);
 
-      // Update product using the RTK Query mutation
       const data = await updateProduct({ productId: params._id, formData });
 
       if (data?.error) {
@@ -123,7 +114,7 @@ const AdminProductUpdate = () => {
                 <img
                   src={image}
                   alt="product"
-                  className="block mx-auto w-full h-[40%]"
+                  className="block mx-auto w-[40%] h-[40%]"
                 />
               </div>
             )}
